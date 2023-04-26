@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const CloudLightning = props => {
+const CloudLightning = (props) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -9,16 +9,20 @@ const CloudLightning = props => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill={color}
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...otherProps}
     >
       <g clipPath="url(#clip0)">
-        <path d="M19 17.9c-.5 0-.9-.3-1-.8-.1-.5.2-1.1.8-1.2 2.2-.4 3.6-2.6 3.1-4.7-.4-1.9-2-3.2-3.9-3.2h-1.3c-.5 0-.9-.3-1-.8-1-3.7-4.8-6-8.5-5-1.8.5-3.3 1.6-4.2 3.2-1 1.7-1.3 3.5-.8 5.4.5 1.9 1.7 3.4 3.4 4.4.5.2.7.8.4 1.3-.3.5-.9.7-1.4.4C2.4 15.7.9 13.7.2 11.3c-.6-2.3-.3-4.8 1-6.8C2.4 2.4 4.4 1 6.7.4c4.5-1.2 9.2 1.4 10.7 5.7h.6c2.8 0 5.3 2 5.9 4.8.7 3.2-1.4 6.4-4.7 7.1-.1-.1-.1-.1-.2-.1z"></path>
-        <path d="M11 24c-.2 0-.4-.1-.6-.2-.5-.3-.6-.9-.3-1.4l3-4.4H9c-.4 0-.7-.2-.9-.5-.2-.3-.2-.7 0-1l4-6c.3-.5.9-.6 1.4-.3.5.3.6.9.3 1.4l-3 4.4H15c.4 0 .7.2.9.5.2.3.2.7 0 1l-4 6c-.3.3-.6.5-.9.5z"></path>
+        <path d="M19 17.9C18.5 17.9 18.1 17.6 18 17.1C17.9 16.6 18.2 16 18.8 15.9C21 15.5 22.4 13.3 21.9 11.2C21.5 9.3 19.9 8 18 8H16.7C16.2 8 15.8 7.7 15.7 7.2C14.7 3.5 10.9 1.2 7.19999 2.2C5.39999 2.7 3.89999 3.8 2.99999 5.4C1.99999 7.1 1.69999 8.9 2.19999 10.8C2.69999 12.7 3.89999 14.2 5.59999 15.2C6.09999 15.4 6.29999 16 5.99999 16.5C5.69999 17 5.09999 17.2 4.59999 16.9C2.39999 15.7 0.89999 13.7 0.19999 11.3C-0.40001 9 -0.100009 6.5 1.19999 4.5C2.39999 2.4 4.39999 1 6.69999 0.4C11.2 -0.8 15.9 1.8 17.4 6.1H18C20.8 6.1 23.3 8.1 23.9 10.9C24.6 14.1 22.5 17.3 19.2 18C19.1 17.9 19.1 17.9 19 17.9Z"></path>
+        <path d="M11 24C10.8 24 10.6 23.9 10.4 23.8C9.89999 23.5 9.79999 22.9 10.1 22.4L13.1 18H8.99999C8.59999 18 8.29999 17.8 8.09999 17.5C7.89999 17.2 7.89999 16.8 8.09999 16.5L12.1 10.5C12.4 10 13 9.9 13.5 10.2C14 10.5 14.1 11.1 13.8 11.6L10.8 16H15C15.4 16 15.7 16.2 15.9 16.5C16.1 16.8 16.1 17.2 15.9 17.5L11.9 23.5C11.6 23.8 11.3 24 11 24Z"></path>
       </g>
       <defs>
         <clipPath id="clip0">
-          <rect width="24" height="24"></rect>
+          <path d="M0 0H24V24H0z"></path>
         </clipPath>
       </defs>
     </svg>
@@ -27,12 +31,12 @@ const CloudLightning = props => {
 
 CloudLightning.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 CloudLightning.defaultProps = {
   color: 'currentColor',
-  size: '24'
+  size: '24',
 };
 
 export default CloudLightning;

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Circle = props => {
+const Circle = (props) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -9,13 +9,17 @@ const Circle = props => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill={color}
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...otherProps}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M12 3a9 9 0 100 18 9 9 0 000-18zM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12z"
+        d="M12 3C7.02944 3 3 7.02944 3 12C3 16.9706 7.02944 21 12 21C16.9706 21 21 16.9706 21 12C21 7.02944 16.9706 3 12 3ZM1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12Z"
       ></path>
     </svg>
   );
@@ -23,12 +27,12 @@ const Circle = props => {
 
 Circle.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Circle.defaultProps = {
   color: 'currentColor',
-  size: '24'
+  size: '24',
 };
 
 export default Circle;

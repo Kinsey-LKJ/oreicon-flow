@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ArrowUpRight = props => {
+const ArrowUpRight = (props) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -9,13 +9,17 @@ const ArrowUpRight = props => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill={color}
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...otherProps}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M7 6a1 1 0 000 2h7.513l-8.22 8.293a1 1 0 101.414 1.414L16 9.341V17a1 1 0 102 0V7a1 1 0 00-1-1H7z"
+        d="M7 6C6.44772 6 6 6.44772 6 7C6 7.55228 6.44772 8 7 8H14.5131L6.29289 16.2929C5.90237 16.6834 5.90237 17.3166 6.29289 17.7071C6.68342 18.0976 7.31658 18.0976 7.70711 17.7071L16 9.34093V17C16 17.5523 16.4477 18 17 18C17.5523 18 18 17.5523 18 17V7C18 6.44772 17.5523 6 17 6H7Z"
       ></path>
     </svg>
   );
@@ -23,12 +27,12 @@ const ArrowUpRight = props => {
 
 ArrowUpRight.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ArrowUpRight.defaultProps = {
   color: 'currentColor',
-  size: '24'
+  size: '24',
 };
 
 export default ArrowUpRight;

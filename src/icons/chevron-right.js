@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ChevronRight = props => {
+const ChevronRight = (props) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -9,13 +9,17 @@ const ChevronRight = props => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill={color}
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...otherProps}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M8.293 5.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L13.586 12 8.293 6.707a1 1 0 010-1.414z"
+        d="M8.29289 5.29289C8.68342 4.90237 9.31658 4.90237 9.70711 5.29289L15.7071 11.2929C16.0976 11.6834 16.0976 12.3166 15.7071 12.7071L9.70711 18.7071C9.31658 19.0976 8.68342 19.0976 8.29289 18.7071C7.90237 18.3166 7.90237 17.6834 8.29289 17.2929L13.5858 12L8.29289 6.70711C7.90237 6.31658 7.90237 5.68342 8.29289 5.29289Z"
       ></path>
     </svg>
   );
@@ -23,12 +27,12 @@ const ChevronRight = props => {
 
 ChevronRight.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ChevronRight.defaultProps = {
   color: 'currentColor',
-  size: '24'
+  size: '24',
 };
 
 export default ChevronRight;

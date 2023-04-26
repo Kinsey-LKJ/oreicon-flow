@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ChevronsDown = props => {
+const ChevronsDown = (props) => {
   const { color, size, ...otherProps } = props;
   return (
     <svg
@@ -9,18 +9,22 @@ const ChevronsDown = props => {
       width={size}
       height={size}
       viewBox="0 0 24 24"
-      fill={color}
+      fill="none"
+      stroke={color}
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       {...otherProps}
     >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6.293 12.293a1 1 0 011.414 0L12 16.586l4.293-4.293a1 1 0 011.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+        d="M6.29289 12.2929C6.68342 11.9024 7.31658 11.9024 7.70711 12.2929L12 16.5858L16.2929 12.2929C16.6834 11.9024 17.3166 11.9024 17.7071 12.2929C18.0976 12.6834 18.0976 13.3166 17.7071 13.7071L12.7071 18.7071C12.3166 19.0976 11.6834 19.0976 11.2929 18.7071L6.29289 13.7071C5.90237 13.3166 5.90237 12.6834 6.29289 12.2929Z"
       ></path>
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M6.293 5.293a1 1 0 011.414 0L12 9.586l4.293-4.293a1 1 0 111.414 1.414l-5 5a1 1 0 01-1.414 0l-5-5a1 1 0 010-1.414z"
+        d="M6.29289 5.29289C6.68342 4.90237 7.31658 4.90237 7.70711 5.29289L12 9.58579L16.2929 5.29289C16.6834 4.90237 17.3166 4.90237 17.7071 5.29289C18.0976 5.68342 18.0976 6.31658 17.7071 6.70711L12.7071 11.7071C12.3166 12.0976 11.6834 12.0976 11.2929 11.7071L6.29289 6.70711C5.90237 6.31658 5.90237 5.68342 6.29289 5.29289Z"
       ></path>
     </svg>
   );
@@ -28,12 +32,12 @@ const ChevronsDown = props => {
 
 ChevronsDown.propTypes = {
   color: PropTypes.string,
-  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  size: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 ChevronsDown.defaultProps = {
   color: 'currentColor',
-  size: '24'
+  size: '24',
 };
 
 export default ChevronsDown;

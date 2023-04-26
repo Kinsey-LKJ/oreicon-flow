@@ -18,16 +18,18 @@ function CamelCase(str) {
 async function optimizeSvg(svg) {
   const result = await optimize(svg, {
     // all config fields are also available here
-    // plugins: [
-    //   { convertShapeToPath: false },
-    //   { mergePaths: false },
-    //   { removeAttrs: { attrs: '(fill|stroke.*)' } },
-    //   { removeTitle: true },
-    // ],
+    plugins: [
+      { name: 'convertShapeToPath', active: false },
+      { name: 'mergePaths', active: false },
+      { name: 'removeAttrs', params: { attrs: '(fill|stroke.*)' } },
+      { name: 'removeTitle', active: true },
+    ],
+    multipass: true,
   });
 
   return result.data;
 }
+
 
 /**
  * remove SVG element.
@@ -45,15 +47,12 @@ function removeSVGElement(svg) {
  * @param {Promise<string>}
  */
 async function processSvg(svg) {
-  const optimized = await optimizeSvg(svg)
-    // remove semicolon inserted by prettier
-    // because prettier thinks it's formatting JSX not HTML
-    .then((svg) => svg.replace(/;/g, ''))
-    .then(removeSVGElement)
-    .then((svg) =>
-      svg.replace(/([a-z]+)-([a-z]+)=/g, (_, a, b) => `${a}${CamelCase(b)}=`),
-    );
-  return optimized;
+  const optimized = await optimizeSvg(svg);
+  const svgWithoutSemicolon = optimized.replace(/;/g, '');
+  const svgWithoutSVGElement = removeSVGElement(svgWithoutSemicolon);
+  const camelCasedAttributes = svgWithoutSVGElement.replace(/([a-z]+)-([a-z]+)=/g, (_, a, b) => `${a}${CamelCase(b)}=`);
+  
+  return camelCasedAttributes;
 }
 
 module.exports = processSvg;

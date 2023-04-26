@@ -18,12 +18,12 @@ function CamelCase(str) {
 async function optimizeSvg(svg) {
   const result = await optimize(svg, {
     // all config fields are also available here
-    plugins: [
-      { convertShapeToPath: false },
-      { mergePaths: false },
-      { removeAttrs: { attrs: '(fill|stroke.*)' } },
-      { removeTitle: true },
-    ],
+    // plugins: [
+    //   { convertShapeToPath: false },
+    //   { mergePaths: false },
+    //   { removeAttrs: { attrs: '(fill|stroke.*)' } },
+    //   { removeTitle: true },
+    // ],
   });
 
   return result.data;

@@ -13,10 +13,9 @@ function CamelCase(str) {
 /**
  * Optimize SVG with `svgo`.
  * @param {string} svg - An SVG string.
- * @returns {Promise<string>}
  */
 function optimize(svg) {
-  const svgo = new optimize({
+  const result = optimize(svg, {
     plugins: [
       { convertShapeToPath: false },
       { mergePaths: false },
@@ -25,9 +24,7 @@ function optimize(svg) {
     ],
   });
 
-  return new Promise((resolve) => {
-    svgo.optimize(svg).then(({ data }) => resolve(data));
-  });
+  return result.data;
 }
 
 /**

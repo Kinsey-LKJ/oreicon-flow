@@ -24,7 +24,6 @@ async function optimizeSvg(svg) {
       { removeAttrs: { attrs: '(fill|stroke.*)' } },
       { removeTitle: true },
     ],
-    multipass: true,
   });
 
   return result.data;

@@ -13,15 +13,18 @@ function CamelCase(str) {
 /**
  * Optimize SVG with `svgo`.
  * @param {string} svg - An SVG string.
+ * @returns {Promise<string>}
  */
-function optimize(svg) {
-  const result = optimize(svg, {
+async function optimizeSvg(svg) {
+  const result = await optimize(svg, {
+    // all config fields are also available here
     plugins: [
       { convertShapeToPath: false },
       { mergePaths: false },
       { removeAttrs: { attrs: '(fill|stroke.*)' } },
       { removeTitle: true },
     ],
+    multipass: true,
   });
 
   return result.data;
@@ -43,7 +46,7 @@ function removeSVGElement(svg) {
  * @param {Promise<string>}
  */
 async function processSvg(svg) {
-  const optimized = await optimize(svg)
+  const optimized = await optimizeSvg(svg)
     // remove semicolon inserted by prettier
     // because prettier thinks it's formatting JSX not HTML
     .then((svg) => svg.replace(/;/g, ''))

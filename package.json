@@ -1,6 +1,6 @@
 {
   "name": "@kinsey-lkj/react-icon",
-  "version": "0.2.5",
+  "version": "0.0.1",
   "description": "Icon automation workflow with Figma",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
@@ -18,7 +18,6 @@
     "juuust",
     "design"
   ],
-
   "scripts": {
     "fetch": "node bin/fetchSVG.js",
     "generate": "sudo rm -rf src/icons && node bin/build.js",

@@ -4,7 +4,7 @@ on:
     branches:
       - 'iconflow-*'
     paths:
-      - 'packages.json'
+      - 'package.json'
 
 
 jobs:

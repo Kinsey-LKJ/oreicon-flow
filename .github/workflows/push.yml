@@ -1,16 +1,13 @@
 name: icon-automation
 on:
-  push:
-    branches:
-      - main
-    # file paths to consider in the event. Optional; defaults to all.
-    paths:
-      - package.json
+  create
 
 jobs:
   icon_automation:
     name: figma icon automation
     runs-on: ubuntu-latest
+    if: startsWith(github.ref, 'refs/heads/iconflow-')
+
     steps:
       - uses: actions/checkout@v1
 

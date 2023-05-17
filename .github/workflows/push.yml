@@ -1,6 +1,11 @@
 name: icon-automation
 on:
-  create
+  push:
+    branches:
+      - 'icon-*'
+    paths:
+      - 'packages.json'
+
 
 jobs:
   icon_automation:

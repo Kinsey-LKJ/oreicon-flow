@@ -17,14 +17,15 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '18.x'
-      # - run: npm install
-      
+
       - name: List directory contents
         run:  ls -l src
       - name: Build and Publish
         uses: Kinsey-LKJ/iconFlow-Action@main
         with:
           npm-auth-token: ${{ secrets.NPM_AUTH_TOKEN }}
+          figma-file-url:  ${{ secrets.FIGMA_FILE_URL }}
+          figma-token: ${{ secrets.FIGMA_TOKEN }}
 
       - name: List directory contents
         run:  ls -l src

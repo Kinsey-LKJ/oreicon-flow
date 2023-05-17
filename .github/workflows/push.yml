@@ -2,7 +2,7 @@ name: icon-automation
 on:
   push:
     branches:
-      - 'icon-*'
+      - 'iconflow-*'
     paths:
       - 'packages.json'
 
@@ -11,7 +11,6 @@ jobs:
   icon_automation:
     name: figma icon automation
     runs-on: ubuntu-latest
-    if: startsWith(github.ref, 'refs/heads/iconflow-')
 
     steps:
       - uses: actions/checkout@v1

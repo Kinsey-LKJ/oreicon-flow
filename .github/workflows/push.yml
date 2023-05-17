@@ -27,7 +27,7 @@ jobs:
           FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
 
       - name: List directory contents
-        run: ls -l
+        run:  ls -l src
       - name: Build and Publish
         uses: Kinsey-LKJ/iconFlow-Action@main
         with:

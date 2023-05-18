@@ -6,7 +6,6 @@ on:
     paths:
       - 'package.json'
 
-
 jobs:
   icon_automation:
     name: figma icon automation
@@ -19,20 +18,10 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: List directory contents
-        run:  ls -l src
       - name: Build and Publish
         uses: Kinsey-LKJ/iconFlow-Action@main
         with:
           npm-auth-token: ${{ secrets.NPM_AUTH_TOKEN }}
-          figma-file-url:  ${{ secrets.FIGMA_FILE_URL }}
+          figma-file-url: ${{ secrets.FIGMA_FILE_URL }}
           figma-token: ${{ secrets.FIGMA_TOKEN }}
-
-      - name: List directory contents
-        run:  ls -l src
-      - name: GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v1.2.5
-        with:
-          build_dir: docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          github-token: ${{ secrets.GH_TOKEN }}

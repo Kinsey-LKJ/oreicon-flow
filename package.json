@@ -1,6 +1,6 @@
 {
   "name": "my-nb-react-icon",
-  "version": "0.0.43",
+  "version": "0.0.61",
   "description": "Icon automation workflow with Figma",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
